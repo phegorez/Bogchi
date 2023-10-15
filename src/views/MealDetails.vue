@@ -1,21 +1,23 @@
 <template>
     <div class="max-w-[800px] mx-auto p-8">
-        <pre>{{ meal }}</pre>
         <h1 class="text-5xl font-bold mb-5">{{ meal.strMeal }}</h1>
-        <img :src="meal.strMealThumb" :alt="strMeal" class="my-4 max-w-full">
+        <img :src="meal.strMealThumb" :alt="strMeal" class="my-4 w-full max-w-full">
         <div class="grid grid-cols-1 md:grid-cols-3 text-lg py-2">
             <div>
-                <strong class="font-bold">Category : </strong>{{ meal.strCategory }}
+                <strong class="font-bold">Category : </strong>
+                <span class="text-sm">{{ meal.strCategory }}</span>
             </div>
             <div>
-                <strong class="font-bold">Area : </strong>{{ meal.strArea }}
+                <strong class="font-bold">Area : </strong>
+                <span class="text-sm">{{ meal.strArea }}</span>
             </div>
-            <div>
-                <strong class="font-bold">Tags : </strong>{{ meal.strTags }}
+            <div class="break-words">
+                <strong class="font-bold">Tags : </strong>
+                <span class="text-sm">{{ meal.strTags }}</span>  
             </div>
         </div>
 
-        <div class="my-4">
+        <div class="my-4 break-all">
             {{ meal.strInstructions }}
         </div>
 
