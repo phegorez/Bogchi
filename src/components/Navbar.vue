@@ -3,7 +3,7 @@
         <div class="flex flex-wrap w-full items-center justify-between">
             <a href="https://flowbite.com/" class="flex items-center">
                 <router-link :to="{ name: 'home' }" class="flex items-center">
-                    <img src="../assets/logo.png" class="h-8 mr-3" alt="Flowbite Logo" />
+                    <img src="../assets/icon.png" class="h-8 mr-3" alt="Flowbite Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Bogchi</span>
                 </router-link>
             </a>
