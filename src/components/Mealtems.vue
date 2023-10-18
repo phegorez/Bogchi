@@ -3,7 +3,7 @@
         <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
             <figure><img :src="meal.strMealThumb" :alt="strMeal" class="object-cover rounded-md" /></figure>
         </router-link>
-        <div class="card-body flex justify-between">
+        <div class="card-body flex justify-between bg-white">
             <h4 class="card-title font-semibold">{{ meal.strMeal }}</h4>
             <p class="mb-4">
                 {{ truncatedInstructions }}

@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6 place-items-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6 place-items-center z-0">
         <MealItems v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
     </div>
     <div v-if="!meals.length" class="flex justify-center text-gray-600">

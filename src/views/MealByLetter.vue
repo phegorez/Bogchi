@@ -7,7 +7,8 @@
             </router-link>
         </div>
         <Meals :meals="meals" v-if="meals.length" />
-        <h1 v-else class="mt-10">Not found any meals on {{ route.params.letter }}</h1>
+        <h1 v-else-if="route.params.letter" class="mt-10">Not found any meals on {{ route.params.letter }}</h1>
+        <h1 v-else class="mt-10">Click some letters</h1>
     </div>
 </template>
 <script setup>
@@ -23,10 +24,14 @@ const meals = computed(() => store.state.mealByLetter)
 
 
 watch(route, () => {
-    store.dispatch('searchMealByLetter', route.params.letter)
+    if(route.params.letter) {
+        store.dispatch('searchMealByLetter', route.params.letter)
+    }    
 })
 
 onMounted(() => {
-    store.dispatch('searchMealByLetter', route.params.letter)
+    if(route.params.letter) {
+        store.dispatch('searchMealByLetter', route.params.letter)
+    }  
 })
 </script>

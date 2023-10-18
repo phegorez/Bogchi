@@ -2,7 +2,7 @@
     <div class="max-w-[800px] mx-auto p-8">
         <h1 class="text-4xl font-bold mb-5 italic">{{ meal.strMeal }}</h1>
         <img :src="meal.strMealThumb" :alt="strMeal" class="my-4 w-full max-w-full rounded-md">
-        <div class="grid grid-cols-1 md:grid-cols-3 text-lg py-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 p-4 text-lg py-2 bg-secondary text-secondary-content rounded-md">
             <div>
                 <strong class="font-bold">Category : </strong>
                 <span class="text-sm">{{ meal.strCategory }}</span>
@@ -13,29 +13,30 @@
             </div>
             <div class="break-words">
                 <strong class="font-bold">Tags : </strong>
-                <span class="text-sm">{{ meal.strTags }}</span>
+                <span class="text-sm" v-if="meal.strTags">{{ meal.strTags }}</span>
+                <span class="text-sm" v-else>-</span>
             </div>
         </div>
 
-        <div class="my-4 break-all border p-4">
+        <div class="my-4 break-all bg-primary-content rounded-md text-white p-4">
             {{ meal.strInstructions }}
         </div>
 
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto bg-base-300 text-neutral-focus rounded-md">
             <table class="table flex">
                 <!-- head -->
-                <thead>
+                <thead class="text-neutral-focus font-bold">
                     <tr>
                         <th>#</th>
                         <th>Ingredients</th>
                         <th>Measure</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-sm">
                     <template v-for="(el, index) in 20">
                         <tr v-if="meal[`strIngredient${index + 1}`]">
                             <td>{{ index + 1 }}</td>
-                            <td><router-link :to="{name : 'byIngredients', params: {ingredients : meal[`strIngredient${index + 1}`]}}">{{ meal[`strIngredient${index + 1}`] }}</router-link></td>
+                            <td class="hover:-translate-y-1 hover:-translate-x-1 hover: hover:font-bold transition duration-300 ease-in-out"><router-link :to="{name : 'byIngredients', params: {ingredients : meal[`strIngredient${index + 1}`]}}">{{ meal[`strIngredient${index + 1}`] }}</router-link></td>
                             <td>{{ meal[`strMeasure${index + 1}`] }}</td>
                         </tr>
                     </template>

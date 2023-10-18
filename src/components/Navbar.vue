@@ -1,5 +1,5 @@
 <template>
-    <header class="navbar bg-neutral px-8 text-neutral-content items-center justify-between0">
+    <header class="navbar bg-neutral px-8 text-neutral-content items-center justify-between">
         <div class="flex flex-wrap w-full items-center justify-between">
             <a href="https://flowbite.com/" class="flex items-center">
                 <router-link :to="{ name: 'home' }" class="flex items-center">
@@ -18,9 +18,9 @@
                 </svg>
             </button>
 
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <div class="hidden w-full bg-neutral md:block md:w-auto lg:static md:static sm:absolute sm:inset-x-0 sm:top-14 z-10" id="navbar-default">
                 <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border md:bg-transparent rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+                    class="font-medium flex flex-col p-4 md:p-0 mt-4 md:bg-transparent rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                     <li @click="toggleMenu">
                         <router-link :to="{ name: 'byName' }"
                             class='block py-4 pl-3 pr-4 hover:bg-neutral-focus text-white rounded'>
