@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-[800px] mx-auto p-8">
-        <h1 class="text-5xl font-bold mb-5">{{ meal.strMeal }}</h1>
-        <img :src="meal.strMealThumb" :alt="strMeal" class="my-4 w-full max-w-full">
+        <h1 class="text-4xl font-bold mb-5 italic">{{ meal.strMeal }}</h1>
+        <img :src="meal.strMealThumb" :alt="strMeal" class="my-4 w-full max-w-full rounded-md">
         <div class="grid grid-cols-1 md:grid-cols-3 text-lg py-2">
             <div>
                 <strong class="font-bold">Category : </strong>
@@ -13,36 +13,36 @@
             </div>
             <div class="break-words">
                 <strong class="font-bold">Tags : </strong>
-                <span class="text-sm">{{ meal.strTags }}</span>  
+                <span class="text-sm">{{ meal.strTags }}</span>
             </div>
         </div>
 
-        <div class="my-4 break-all">
+        <div class="my-4 break-all border p-4">
             {{ meal.strInstructions }}
         </div>
 
         <div class="overflow-x-auto">
             <table class="table flex">
-                    <!-- head -->
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Ingredients</th>
-                            <th>Measure</th>
+                <!-- head -->
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ingredients</th>
+                        <th>Measure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template v-for="(el, index) in 20">
+                        <tr v-if="meal[`strIngredient${index + 1}`]">
+                            <td>{{ index + 1 }}</td>
+                            <td><router-link :to="{name : 'byIngredients', params: {ingredients : meal[`strIngredient${index + 1}`]}}">{{ meal[`strIngredient${index + 1}`] }}</router-link></td>
+                            <td>{{ meal[`strMeasure${index + 1}`] }}</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <template v-for="(el, index) in 20">
-                            <tr v-if="meal[`strIngredient${index + 1}`]">
-                                <td>{{ index + 1 }}</td>
-                                <td>{{ meal[`strIngredient${index + 1}`] }}</td>
-                                <td>{{ meal[`strMeasure${index + 1}`] }}</td>
-                            </tr>
-                        </template>
-                    </tbody>
+                    </template>
+                </tbody>
             </table>
         </div>
-        <div class="mt-4 flex gap-8 justify-center">
+        <div class="mt-4 flex md:gap-8 justify-center sm:gap-2">
             <YoutubeButton :href="meal.strYoutube">Go to Youtube</YoutubeButton>
             <a :href="meal.strSource" target="_blank" class="btn btn-outline btn-neutral">
                 View Original Source

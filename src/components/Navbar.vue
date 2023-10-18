@@ -21,19 +21,19 @@
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border md:bg-transparent rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
-                    <li>
+                    <li @click="toggleMenu">
                         <router-link :to="{ name: 'byName' }"
                             class='block py-4 pl-3 pr-4 hover:bg-neutral-focus text-white rounded'>
                             Search Meals
                         </router-link>
                     </li>
-                    <li>
+                    <li @click="toggleMenu">
                         <router-link :to="{ name: 'byLetter' }"
                             class='block py-4 pl-3 pr-4 hover:bg-neutral-focus text-white rounded'>
                             Search By Letter
                         </router-link>
                     </li>
-                    <li>
+                    <li @click="toggleMenu">
                         <router-link :to="{ name: 'ingredients' }"
                         class='block py-4 pl-3 pr-4 hover:bg-neutral-focus text-white rounded'>
                             Search By Ingredients
