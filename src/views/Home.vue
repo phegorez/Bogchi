@@ -13,8 +13,10 @@ const meals = ref([])
 
 onMounted(async () => {
     for (let i = 0; i < 12; i++) {
+
+        const randomQueryParam = `?random=${Math.random()}`
         axiosClient
-            .get(`random.php`)
+            .get(`random.php${randomQueryParam}`)
             .then(({data}) => meals.value.push(data.meals[0]))
     }
 })
