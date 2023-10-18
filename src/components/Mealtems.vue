@@ -17,7 +17,6 @@
     </div>
 </template>
 <script setup>
-import YoutubeButton from '../components/YoutubeButton.vue'
 import { truncateWords } from '../filters';
 
 const truncatedInstructions = truncateWords(meal.strInstructions, 20)
